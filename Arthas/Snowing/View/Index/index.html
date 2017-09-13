@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 引入BootStrap开始 -->
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/npm.js"></script>
+    <!-- 引入BootStrap结束 -->
+    <link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+    <script type="text/javascript" src="__PUBLIC__/js/admin.js"></script>
+    <title>欢迎使用myoffice</title>
+</head>
+<body>
+
+<div class="contaioner-fluid content">
+    <header id="header">
+        <div class="row-fluid clearfix">
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row-fluid clearfix  col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <img id="logo" class="img-responsive" src="__PUBLIC__/images/admin/office_logo.jpg" alt="">
+                </div>
+
+                <div id="banner" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <ul class="nav nav-pills nav-justified ">
+                        <li class="active"><a href="#">官网首页</a></li>
+                        <li><a href="http://arthas.ldxy.edu.cn/blog/">技术博客</a></li>
+                        <li><a href="http://arthas.ldxy.edu.cn/jifen/">积分</a></li>
+                        <li><a href="__PUBLIC__/tempPage/sign.html" tempPage="__PUBLIC__/tempPage/sign.html" title="签到">签到</a></li>
+                        <li><a href="__MODULE__/Jianli/index" template="__PUBLIC__/tempPage/jianli.html" title="简历">简历</a></li>
+                        <li><a href="#">留言</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <content id="content" class="container-fluid">
+        <!---->
+        <div class="col-sm-4 col-md-4">
+            <notempty name="Think.session.session_id">
+                <div id="client" class="col-sm-11 col-md-11 col-sm-offset-1 col-md-offset-1">
+                    <img id="client-icon" src="__PUBLIC__/images/admin/userIcons/{$Think.session.session_id}.jpg" class="img-responsive img-circle col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                    <br>
+                    <p id="client-name" class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                        <strong>当前登录</strong><i>{$Think.session.name}</i>
+                    </p>
+                    <p id="client-ip" class="col-xs-6 col-sm-7 col-md-7 col-lg-7">
+                        <strong>登录IP</strong><i>{$Think.session.ip}</i>
+                    </p>
+                    <p id="client-mac" class="col-xs-6 col-sm-7 col-md-7 col-lg-7">
+                        <strong>MAC</strong><i>{$Think.session.mac}</i>
+                    </p>
+                    <p id="client-exit" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xs-offset-4 col-sm-offset-4 col-md-offset-1 col-lg-offset-1">
+                        <a id="exit_login" data="{$Think.session.name}" href="__MODULE__/Login/ExitLogin" class="btn btn-sm btn-danger">注销</a>
+                    </p>
+                </div>
+
+            </notempty>
+        </div>
+        <div id="data-display" class="col-sm-8 col-md-8">
+            <empty name="Think.session.session_id">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <form id="login_form" name="login_form" action="__MODULE__/Login/loginCheck" method="post"
+                          class="form-horizontal col-xs-8 col-sm-8 col-md-8 col-lg-8  col-sm-offset-2" role="form">
+
+                        <div style="height:50px; width:100%"></div>
+
+                        <div id="uname_form" class="form-group">
+                            <label for="uname" class="col-sm-4 control-label">用户名</label>
+                            <div id="uname_input" title="__MODULE__/Login/usernameCheck" class="col-sm-5">
+                                <input type="text" class="form-control" id="uname" name="user" placeholder="请输入用户名" title="__MODULE__/Login/usernameCheck">
+                            </div>
+                        </div>
+                        <div id="upass_form" class="form-group">
+                            <label for="upass" class="col-sm-4 control-label">密码</label>
+                            <div id="upass_input" class="col-sm-5">
+                                <input type="password" class="form-control" id="upass" name="pass" placeholder="请输入密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-5">
+                                <!--<button id="submit" type="button" class="btn btn-default">登录</button>-->
+
+                                <!-- 按钮触发模态框 -->
+                                <button id="submit" type="button" class="btn btn-primary btn-lg disabled" data-toggle="modal" data-target="#myModal">登录</button>
+                                <!-- 模态框（Modal） -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel">正在登录....</h4>
+
+                                                <div class="progress progress-striped active">
+                                                    <div class="progress-bar progress-bar-info" role="progressbar"
+                                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                         style="width: 100%;">
+                                                        <span id="title_status" class="sr-only">正在登录....</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div style="height:50px; width:100%"></div>
+                    </form>
+                </div>
+            </empty>
+        </div>
+
+    </content>
+
+    <footer id="footer"></footer>
+</div>
+
+</body>
+</html>

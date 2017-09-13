@@ -1,0 +1,90 @@
+/**
+
+	Author:EvanBell;
+	Var:1.0;
+	Date:16/05/20;
+
+*/
+
+/*------------------默认样式重置------------------*/
+hr{
+	margin: 0px;
+}
+
+input{
+	margin: 0px;
+}
+
+input,button,select,textarea{
+	outline:none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/*------------------通用样式------------------*/
+body{
+	margin: 0px;
+	background-image: url(../images/login/login_bg.jpg);
+	background-attachment :fixed;
+	font-family: "微软雅黑";
+	/*背景自适应*/
+	-moz-background-size:cover;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+}
+
+a{
+	color:#fff;
+	text-decoration:none;
+}
+
+a:hover{
+	color: #333;
+	font-weight:bold;
+}
+
+.button1{
+	margin-top: 8px;
+	width: 84%;
+	height: 35px; 
+	font-size: 16px;
+	border-radius:6px;
+	font-family: 微软雅黑;
+	background-color: #04BE02;
+	border-color: #04BE02;
+	color:#fff;
+}
+
+.button2{
+	margin-top: 8px;
+	width: 41%;
+	height: 35px; 
+	font-size: 16px;
+	border-radius:6px;
+	font-family: 微软雅黑;
+	background-color: #fff;
+	border-color: #04BE02;
+	color: #04BE02;
+}
+
+.Text{
+	padding-left: 10px;
+	font-size: 17px;
+	border-radius:7px;
+	font-family: 黑体;
+	color:#999;
+}
+
+/*------------------copyright------------------*/
+.copy{
+	width:400px;
+	height: 100%;
+	font-size: 12px;
+	color:#fff;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+}

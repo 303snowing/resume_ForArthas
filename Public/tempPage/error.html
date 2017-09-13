@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://127.0.0.1/Objects/ForArthas/Public/css/bootstrap.min.tmp.css">
+<link rel="stylesheet" href="http://127.0.0.1/Objects/ForArthas/Public/css/bootstrap-responsive.min.css">
+<style type="text/css">
+
+	/* 重写bootstrap H标签字号 */
+	h1{
+		font-size: 4.5rem;
+	}
+	h4{
+		font-size: 2.5rem;
+	}
+	h5{
+		font-size: 1.5rem;
+	}
+
+	div{
+		//border: 1px solid red;
+	}
+	/* 重写bootstrap网格行高 */
+	.row{
+		height: 50%;
+		margin: 0;
+	}
+
+	.error{
+		background-image: url("http://127.0.0.1/Objects/ForArthas/Public/images/error/404.jpg");
+		background-repeat: no-repeat;
+		background-size: 85% 85%;
+		background-position: center;
+	}
+	.errorCon{
+		position: relative;
+		top: 13%;
+		left: 28%;
+		width: 70%;
+	}
+	.errorCon h1 small{
+		color: #333;
+		font-size: 2rem;
+	}
+    .errorCon smaller{
+        font-size: 1.3rem;
+		margin-left: 5px;
+    }
+	.errorCon h4{
+		margin-left: 15%;
+	}
+	
+	.errorCon h5{
+		margin: 5% 5%;
+	}
+	.errorCon h5 a{
+		margin: 10px;
+		text-decoration-line: none;
+		font-size: 1.5rem;
+	}
+
+</style>
+
+<body>
+	<div class="container-fluid">
+		<div class="span1"></div>
+		<div class="span11 error">
+			<div class="row"></div>
+			<div class="row">
+				<div class="errorCon">
+					<h1>卧槽！
+                        <small class="errorInfo">
+                            <eq name="error" value="">单身狗把页面叼走啦~<else/>{$error}</eq>
+                        </small>
+                    </h1>
+					<smaller class="smaller">将在<time id="jumpTime">{$waitSecond}</time>秒后<a href="{$jumpUrl}">跳转</a></smaller>
+					<h5><a href="http://arthas.ldxy.edu.cn/">返回首页</a><a href="#">提交BUG</a></h5>
+				</div>
+			</div>
+		</div>
+		<div class="span1"></div>
+	</div>
+</body>
+<script type="text/javascript" src="http://127.0.0.1/Objects/ForArthas/Public/js/jquery.js"></script>
+<script type="text/javascript" src="http://127.0.0.1/Objects/ForArthas/Public/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    //alert({$waitSecond});
+    $(document).ready(function() {
+        function jump(count) {
+            window.setTimeout(function(){
+                count--;
+                if(count > 0) {
+                    $('#jumpTime').text(count);
+                    jump(count);
+                } else {
+                    location.href="{$jumpUrl}";
+                }
+            }, 1000);
+        }
+        jump({$waitSecond});
+    });
+</script>
+</html>

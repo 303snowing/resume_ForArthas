@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+*{margin: 0; padding: 0;}
+
+body{
+	background: url('../images/admin/background.jpg');
+	overflow-x: hidden;
+}
+
+div{
+
+}
+
+header{
+	z-index: 9;
+	
+}
+
+content{
+
+}
+/*主页样式*/
+.content{
+	background: rgba(201,218,248,0.5);
+}
+
+#banner{
+	background: rgba(109,158,235,0.6);
+	border-radius: 0 15px 15px 0;
+	margin-left: -15px;
+}
+
+#login_form{
+	margin-top:15%;
+	background: rgba(201,218,248,0.4);
+	border-radius: 15px;
+}
+#client{
+    height: 500px;
+    border-right: 1px solid slategrey;
+}
+#client p i{
+	margin-left: 5px;
+	margin-right: 10px;
+}
+/*主页end*/
+
+/*简历页面样式*/
+#jianli-title{
+    color: #843534;
+}
+#list{
+    border: 1px solid #2f96b4;
+    border-radius: 15px;
+    margin-top: 20px;;
+    padding: 10px;
+}
+#list p{
+    /*border-top: 1px solid #2caab3;*/
+    background: rgba(141,148,148,0.1);
+    margin: 5px;
+    line-height: 25px;
+}
+/*简历end*/
+/*签到*/
+#sign-form{
+    margin-top: 15%;
+}
+/*签到end*/
